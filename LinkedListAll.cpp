@@ -32,17 +32,39 @@ void insertValueAtBeg(ll data){
     head = temp;
 }
 
+void insertValueAtNthPos(ll data, ll n){
+    if(n==1){
+        insertValueAtBeg(data);
+        return;
+    }
+    Node* insertNode = new Node();
+    insertNode->data = data;
+    Node* temp = head;
+    for(int i=0;i<n-2;i++){
+        temp = temp->next;
+    }
+    insertNode->next = temp->next;
+    temp->next = insertNode;
+}
+
 int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
     head = NULL;
-    for(ll i=0;i<5;i++){
+    cout<<"Enter number of nodes to be inserted at Beginning"<<endl<<endl;
+    ll n;
+    cin>>n;
+    for(ll i=0;i<n;i++){
         ll num;
         cin>>num;
         insertValueAtBeg(num);
         printLL();
     }
+    
+    insertValueAtNthPos(5,2);
+    insertValueAtNthPos(6,1);
+    insertValueAtNthPos(7,6);
     
     printLL();
     
