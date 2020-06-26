@@ -62,6 +62,20 @@ void deleteNodeAtNthPos(ll pos){
     delete(del);
 }
 
+void reverseLinkedListIteratively(){
+    Node* prev = NULL;
+    Node* current = head;
+    Node* nextNode = head;
+    
+    while(current!=NULL){
+        nextNode=current->next;
+        current->next = prev;
+        prev = current;
+        current = nextNode;
+    }
+    head = prev;
+}
+
 int main()
 {
 	ios_base::sync_with_stdio(false);
@@ -86,6 +100,10 @@ int main()
     deleteNodeAtNthPos(3);
     deleteNodeAtNthPos(6);
     deleteNodeAtNthPos(1);
+    
+    printLL();
+    
+    reverseLinkedListIteratively();
     
     printLL();
     
