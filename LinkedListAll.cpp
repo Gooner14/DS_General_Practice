@@ -90,6 +90,17 @@ void printLLRecursivelyNotOrder(Node* temp){
     cout<<temp->data<<" ";
 }
 
+void reverseLinkedListRecursively(Node* temp){
+    if(temp->next==NULL){
+        head = temp;
+        return;
+    }
+    reverseLinkedListRecursively(temp->next);
+    temp->next->next = temp;
+    temp->next = NULL;
+}
+
+
 int main()
 {
 	ios_base::sync_with_stdio(false);
@@ -124,6 +135,11 @@ int main()
     printLLRecursivelyOrder(head);
     cout<<endl<<endl;
     printLLRecursivelyNotOrder(head);
+    cout<<endl<<endl;
+    
+    reverseLinkedListRecursively(head);
+    
+    printLL();
     
 	return 0;
 }	
